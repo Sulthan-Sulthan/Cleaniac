@@ -191,6 +191,9 @@
       if (CFG.HOURS && CFG.HOURS.length) {
         rows.push(contactRow("ic-clock", "Business hours", CFG.HOURS.map(h => h.days + ": " + h.time).join(" · ")));
       }
+      if (CFG.WEBSITE_URL && CFG.WEBSITE_URL.length) {
+        rows.push(contactRow("ic-globe", "Website", CFG.WEBSITE_URL,CFG.WEBSITE_URL || null,));
+      }
       list.innerHTML = rows.join("");
     }
 

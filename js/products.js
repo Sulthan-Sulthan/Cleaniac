@@ -270,7 +270,7 @@ const PRODUCTS = [
     category: ["auto"],
     short: "Automotive dashboard care",
     description: "Automotive dashboard-care product for vehicle interiors.",
-    image: "assets/products/dashboard-polish.webp",
+    image: "assets/products/dashboard-polish.png",
     flavourLabel: "Fragrance",
     flavours: [],
     sizes: [
@@ -285,7 +285,7 @@ const PRODUCTS = [
     category: ["auto"],
     short: "Automotive tyre care",
     description: "Automotive tyre-care product.",
-    image: "assets/products/tyre-polish.webp",
+    image: "assets/products/tyre-polish.png",
     flavourLabel: "Fragrance",
     flavours: [],
     sizes: [
