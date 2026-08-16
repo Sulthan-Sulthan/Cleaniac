@@ -43,19 +43,19 @@ with the real timings, or delete the `HOURS` entries to hide that row.
 
 ```js
 {
-  id: "floor-cleaner",                       // unique; also the share link (#floor-cleaner)
+  id: "floor-cleaner",                       
   name: "Floor Cleaner",
-  category: ["floor"],                       // ids come from CATEGORIES at the top of the file
+  category: ["floor"],
   short: "For everyday floor and tile cleaning",
   description: "Used for cleaning floors and tiles…",
-  image: "assets/products/floor-cleaner.webp",
-  flavourLabel: "Fragrance",                 // or "Variant"
-  flavours: ["Oudh", "Botanical Mist", …],   // leave [] if there is only one
+  image: "assets/products/floor-cleaner.png",
+  flavourLabel: "Fragrance",
+  flavours: ["Oudh", "Botanical Mist", …],
   sizes: [
     { label: "500 ml", price: 99 },
-    { label: "5 L",    price: null }         // null → "Contact for price"
+    { label: "5 L",    price: null }
   ],
-  bulkAvailable: true                        // shows the "Bulk available" pill
+  bulkAvailable: true
 }
 ```
 

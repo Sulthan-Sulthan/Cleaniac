@@ -20,14 +20,14 @@
 
 /* Category names used across the site. Rename here and everywhere updates. */
 const CATEGORIES = [
-  { id: "floor",      name: "Floor Care",              icon: "floor"  },
-  { id: "kitchen",    name: "Kitchen Care",            icon: "kitchen"},
-  { id: "bathroom",   name: "Bathroom & Surface Care", icon: "bath"   },
-  { id: "laundry",    name: "Laundry Care",            icon: "laundry"},
-  { id: "hygiene",    name: "Hand & Personal Hygiene", icon: "hand"   },
-  { id: "air",        name: "Air Care",                icon: "air"    },
-  { id: "auto",       name: "Automobile Care",         icon: "auto"   },
-  { id: "accessories",name: "Cleaning Accessories",    icon: "mop"    }
+  { id: "floor", name: "Floor Care", icon: "floor" },
+  { id: "kitchen", name: "Kitchen Care", icon: "kitchen" },
+  { id: "bathroom", name: "Bathroom & Surface Care", icon: "bath" },
+  { id: "laundry", name: "Laundry Care", icon: "laundry" },
+  { id: "hygiene", name: "Hand & Personal Hygiene", icon: "hand" },
+  { id: "air", name: "Air Care", icon: "air" },
+  { id: "auto", name: "Automobile Care", icon: "auto" },
+  { id: "accessories", name: "Cleaning Accessories", icon: "mop" }
 ];
 
 const PRODUCTS = [
@@ -37,14 +37,14 @@ const PRODUCTS = [
     category: ["floor"],
     short: "For everyday floor and tile cleaning",
     description: "Used for cleaning floors and tiles. Available in five fragrance options and in household as well as larger commercial pack sizes.",
-    image: "assets/products/floor-cleaner.webp",   // ← replace with your own photo anytime
+    image: "assets/products/floor-cleaner.png",   // ← replace with your own photo anytime
     flavourLabel: "Fragrance",
     flavours: ["Oudh", "Botanical Mist", "Citrus Lemon", "Aromatic Musk", "Lemongrass"],
     sizes: [
       { label: "500 ml", price: 99 },
-      { label: "5 L",    price: null },
-      { label: "20 L",   price: null },
-      { label: "50 L",   price: null }
+      { label: "5 L", price: null },
+      { label: "20 L", price: null },
+      { label: "50 L", price: null }
     ],
     bulkAvailable: true
   },
@@ -54,15 +54,15 @@ const PRODUCTS = [
     category: ["kitchen"],
     short: "For utensils and everyday kitchen washing",
     description: "Used for cleaning utensils and everyday kitchen washing. Available from compact household bottles up to large commercial packs.",
-    image: "assets/products/dishwash.webp",
+    image: "assets/products/dishwash.png",
     flavourLabel: "Fragrance",
     flavours: [],
     sizes: [
       { label: "250 ml", price: 45 },
       { label: "500 ml", price: 99 },
-      { label: "5 L",    price: 599 },
-      { label: "20 L",   price: null },
-      { label: "50 L",   price: null }
+      { label: "5 L", price: 599 },
+      { label: "20 L", price: null },
+      { label: "50 L", price: null }
     ],
     bulkAvailable: true
   },
@@ -72,14 +72,14 @@ const PRODUCTS = [
     category: ["bathroom"],
     short: "For toilet bowls and bathroom sanitation",
     description: "For cleaning toilet bowls and bathroom sanitation. Available as Original and Lemon variants.",
-    image: "assets/products/toilet-cleaner.webp",
+    image: "assets/products/toilet-cleaner.png",
     flavourLabel: "Variant",
     flavours: ["Original Toilet Cleaner", "Lemon Toilet Cleaner"],
     sizes: [
       { label: "500 ml", price: 99 },
-      { label: "5 L",    price: null },
-      { label: "20 L",   price: null },
-      { label: "50 L",   price: null }
+      { label: "5 L", price: null },
+      { label: "20 L", price: null },
+      { label: "50 L", price: null }
     ],
     bulkAvailable: true
   },
@@ -89,7 +89,7 @@ const PRODUCTS = [
     category: ["bathroom"],
     short: "For glass, mirrors and smooth surfaces",
     description: "For cleaning glass, mirrors and suitable smooth surfaces.",
-    image: "assets/products/glass-cleaner.webp",
+    image: "assets/products/glass-cleaner.png",
     flavourLabel: "Fragrance",
     flavours: [],
     sizes: [
@@ -103,14 +103,14 @@ const PRODUCTS = [
     category: ["hygiene"],
     short: "Liquid hand wash in four fragrances",
     description: "Liquid hand wash available in four fragrance options, in household bottles and larger refill packs.",
-    image: "assets/products/hand-wash.webp",
+    image: "assets/products/hand-wash.png",
     flavourLabel: "Fragrance",
     flavours: ["Aqua Fresh", "Litchi", "Orange", "Amber Blossom"],
     sizes: [
       { label: "250 ml", price: 79 },
-      { label: "1 L",    price: 199 },
-      { label: "5 L",    price: null },
-      { label: "20 L",   price: null }
+      { label: "1 L", price: 199 },
+      { label: "5 L", price: null },
+      { label: "20 L", price: null }
     ],
     bulkAvailable: true
   },
@@ -120,13 +120,13 @@ const PRODUCTS = [
     category: ["laundry"],
     short: "Laundry detergent powder for clothes",
     description: "Laundry detergent powder for washing clothes. Available in household packs and a 30 kg bulk pack.",
-    image: "assets/products/detergent-powder.webp",
+    image: "assets/products/detergent-powder.png",
     flavourLabel: "Fragrance",
     flavours: [],
     sizes: [
-      { label: "1 kg",  price: 60 },
-      { label: "2 kg",  price: 99 },
-      { label: "3 kg",  price: 199 },
+      { label: "1 kg", price: 60 },
+      { label: "2 kg", price: 99 },
+      { label: "3 kg", price: 199 },
       { label: "30 kg", price: null }
     ],
     bulkAvailable: true
@@ -137,12 +137,12 @@ const PRODUCTS = [
     category: ["laundry"],
     short: "Softens clothes and adds a fresh scent",
     description: "Used for softening clothes and providing a fresh scent after washing.",
-    image: "assets/products/fabric-conditioner.webp",
+    image: "assets/products/fabric-conditioner.png",
     flavourLabel: "Fragrance",
     flavours: [],
     sizes: [
       { label: "500 ml", price: 149 },
-      { label: "5 L",    price: null }
+      { label: "5 L", price: null }
     ],
     bulkAvailable: true
   },
@@ -152,7 +152,7 @@ const PRODUCTS = [
     category: ["laundry"],
     short: "Liquid laundry detergent for clothes",
     description: "Liquid laundry detergent for washing clothes, in household and larger 5 L packs.",
-    image: "assets/products/liquid-detergent.webp",
+    image: "assets/products/liquid-detergent.png",
     flavourLabel: "Fragrance",
     flavours: [],
     sizes: [
@@ -167,12 +167,12 @@ const PRODUCTS = [
     category: ["floor"],
     short: "General floor and surface cleaning",
     description: "General floor and surface cleaning solution, available in five fragrance options and in large commercial pack sizes.",
-    image: "assets/products/phenyl.webp",
+    image: "assets/products/phenyl.png",
     flavourLabel: "Fragrance",
     flavours: ["Lemongrass", "Jasmine", "Sandal", "Lavender", "Citrus Lemon"],
     sizes: [
-      { label: "1 L",  price: 99 },
-      { label: "5 L",  price: 299 },
+      { label: "1 L", price: 99 },
+      { label: "5 L", price: 299 },
       { label: "20 L", price: null },
       { label: "50 L", price: null }
     ],
@@ -184,7 +184,7 @@ const PRODUCTS = [
     category: ["floor"],
     short: "Black phenyl for general cleaning",
     description: "Black phenyl for general floor and surface cleaning requirements.",
-    image: "assets/products/black-phenyl.webp",
+    image: "assets/products/black-phenyl.png",
     flavourLabel: "Fragrance",
     flavours: [],
     sizes: [
@@ -198,7 +198,7 @@ const PRODUCTS = [
     category: ["bathroom"],
     short: "For drain-cleaning applications",
     description: "For drain-cleaning applications. Supplied as a 150 g pack.",
-    image: "assets/products/drain-cleaner.webp",
+    image: "assets/products/drain-cleaner.png",
     flavourLabel: "Fragrance",
     flavours: [],
     sizes: [
@@ -254,13 +254,13 @@ const PRODUCTS = [
     category: ["bathroom", "kitchen"],
     short: "Multipurpose cleaning for many surfaces",
     description: "Multipurpose cleaning solution for suitable household and commercial surfaces.",
-    image: "assets/products/all-purpose-cleaner.webp",
+    image: "assets/products/all-purpose-cleaner.png",
     flavourLabel: "Fragrance",
     flavours: [],
     sizes: [
       { label: "500 ml", price: 149 },
-      { label: "1 L",    price: 199 },
-      { label: "5 L",    price: null }
+      { label: "1 L", price: 199 },
+      { label: "5 L", price: null }
     ],
     bulkAvailable: true
   },
@@ -304,7 +304,7 @@ const PRODUCTS = [
     flavourLabel: "Fragrance",
     flavours: [],
     sizes: [
-      { label: "5 L",  price: null },
+      { label: "5 L", price: null },
       { label: "20 L", price: null }
     ],
     bulkAvailable: true
@@ -319,7 +319,7 @@ const PRODUCTS = [
     flavourLabel: "Fragrance",
     flavours: [],
     sizes: [
-      { label: "5 L",  price: null },
+      { label: "5 L", price: null },
       { label: "20 L", price: null }
     ],
     bulkAvailable: true
@@ -330,12 +330,12 @@ const PRODUCTS = [
     category: ["floor", "kitchen"],
     short: "Soap oil in household and bulk packs",
     description: "Soap oil available from 1 L household packs up to 50 L commercial quantities.",
-    image: "assets/products/soap-oil.webp",
+    image: "assets/products/soap-oil.png",
     flavourLabel: "Fragrance",
     flavours: [],
     sizes: [
-      { label: "1 L",  price: 99 },
-      { label: "5 L",  price: 299 },
+      { label: "1 L", price: 99 },
+      { label: "5 L", price: 299 },
       { label: "20 L", price: null },
       { label: "50 L", price: null }
     ],
@@ -352,7 +352,7 @@ const PRODUCTS = [
     flavours: ["Musky Magic", "Floral Essence"],
     sizes: [
       { label: "250 ml", price: 129 },
-      { label: "5 L",    price: null }
+      { label: "5 L", price: null }
     ],
     bulkAvailable: true
   },

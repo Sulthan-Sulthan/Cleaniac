@@ -262,32 +262,21 @@
     const flavourCount = (product.flavours || []).length;
 
     /* pills sit inside the card body — never on top of the photograph */
-    const pills = [];
-    if (flavourCount) {
-      pills.push('<span class="pill-tag">' + flavourCount + " " +
-        (product.flavourLabel === "Variant" ? "variants" : "fragrances") + "</span>");
-    }
-    pills.push('<span class="pill-tag">' + sizeCount + " pack " + (sizeCount > 1 ? "sizes" : "size") + "</span>");
-    if (product.bulkAvailable) pills.push('<span class="pill-tag pill-tag--bulk">Bulk available</span>');
-
     card.innerHTML =
       '<button class="product-media" type="button" data-open aria-label="View details for ' + esc(product.name) + '">' +
         mediaHTML(product) +
-      "</button>" +
+      '</button>' +
       '<div class="product-body">' +
-        '<h3 class="product-name"><button type="button" data-open>' + esc(product.name) + "</button></h3>" +
-        '<p class="product-short">' + esc(product.short) + "</p>" +
-        '<p class="product-pills">' + pills.join("") + "</p>" +
+        '<h3 class="product-name"><button type="button" data-open>' + esc(product.name) + '</button></h3>' +
         '<p class="product-price">' +
           (from != null
-            ? '<span class="from">' + (sizeCount > 1 ? "From" : "Price") + "</span>" + money(from)
-            : '<span class="enquiry">' + ENQUIRY_TEXT + "</span>") +
-        "</p>" +
-      "</div>" +
+            ? '<span class="from">' + (sizeCount > 1 ? "From" : "Price") + '</span>' + money(from)
+            : '<span class="enquiry">' + ENQUIRY_TEXT + '</span>') +
+        '</p>' +
+      '</div>' +
       '<div class="product-actions">' +
-        '<button class="btn btn--soft btn--sm" type="button" data-open>View Details</button>' +
-        '<button class="btn btn--primary btn--sm" type="button" data-quick aria-label="Add ' + esc(product.name) + ' to cart">Add to Cart</button>' +
-      "</div>";
+        '<button class="btn btn--primary btn--sm btn--block" style="width:100%" type="button" data-quick aria-label="Add ' + esc(product.name) + ' to cart">Add to Cart</button>' +
+      '</div>';
 
     card.addEventListener("click", function (e) {
       if (card.dataset.dragged === "1") return;
