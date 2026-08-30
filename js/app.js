@@ -122,7 +122,7 @@
       root.setAttribute("data-theme", next);
       setTimeout(() => root.classList.remove("theme-switching"), 80);
       /* stored as a plain string — that is what the inline <head> script reads */
-      try { localStorage.setItem(THEME_KEY, next); } catch (e) {}
+      try { localStorage.setItem(THEME_KEY, next); } catch (e) { }
       syncThemeButton();
     });
   }
@@ -190,9 +190,6 @@
       }
       if (CFG.HOURS && CFG.HOURS.length) {
         rows.push(contactRow("ic-clock", "Business hours", CFG.HOURS.map(h => h.days + ": " + h.time).join(" · ")));
-      }
-      if (CFG.WEBSITE_URL && CFG.WEBSITE_URL.length) {
-        rows.push(contactRow("ic-globe", "Website", CFG.WEBSITE_URL,CFG.WEBSITE_URL || null,));
       }
       list.innerHTML = rows.join("");
     }
@@ -267,18 +264,18 @@
     /* pills sit inside the card body — never on top of the photograph */
     card.innerHTML =
       '<button class="product-media" type="button" data-open aria-label="View details for ' + esc(product.name) + '">' +
-        mediaHTML(product) +
+      mediaHTML(product) +
       '</button>' +
       '<div class="product-body">' +
-        '<h3 class="product-name"><button type="button" data-open>' + esc(product.name) + '</button></h3>' +
-        '<p class="product-price">' +
-          (from != null
-            ? '<span class="from">' + (sizeCount > 1 ? "From" : "Price") + '</span>' + money(from)
-            : '<span class="enquiry">' + ENQUIRY_TEXT + '</span>') +
-        '</p>' +
+      '<h3 class="product-name"><button type="button" data-open>' + esc(product.name) + '</button></h3>' +
+      '<p class="product-price">' +
+      (from != null
+        ? '<span class="from">' + (sizeCount > 1 ? "From" : "Price") + '</span>' + money(from)
+        : '<span class="enquiry">' + ENQUIRY_TEXT + '</span>') +
+      '</p>' +
       '</div>' +
       '<div class="product-actions">' +
-        '<button class="btn btn--primary btn--sm btn--block" style="width:100%" type="button" data-quick aria-label="Add ' + esc(product.name) + ' to cart">Add to Cart</button>' +
+      '<button class="btn btn--primary btn--sm btn--block" style="width:100%" type="button" data-quick aria-label="Add ' + esc(product.name) + ' to cart">Add to Cart</button>' +
       '</div>';
 
     card.addEventListener("click", function (e) {
@@ -402,8 +399,8 @@
       resultLine.textContent = browsing
         ? "Showing all " + list.length + " Cleaniac products"
         : list.length + (list.length === 1 ? " product" : " products") +
-          (activeQuery ? " matching “" + activeQuery + "”" : "") +
-          (activeFilter !== "all" ? " in " + (activeFilter === "bulk" ? "Commercial & Bulk" : catName(activeFilter)) : "");
+        (activeQuery ? " matching “" + activeQuery + "”" : "") +
+        (activeFilter !== "all" ? " in " + (activeFilter === "bulk" ? "Commercial & Bulk" : catName(activeFilter)) : "");
     }
 
     if (browsing) {
@@ -428,8 +425,8 @@
     head.innerHTML = "<h2>" + esc(title) + '</h2><span class="row-count">' + items.length +
       (items.length === 1 ? " product" : " products") + "</span>" +
       '<div class="row-nav">' +
-        '<button class="icon-btn" type="button" data-prev aria-label="Scroll ' + esc(title) + ' left">' + icon("ic-left", 19) + "</button>" +
-        '<button class="icon-btn" type="button" data-next aria-label="Scroll ' + esc(title) + ' right">' + icon("ic-right", 19) + "</button>" +
+      '<button class="icon-btn" type="button" data-prev aria-label="Scroll ' + esc(title) + ' left">' + icon("ic-left", 19) + "</button>" +
+      '<button class="icon-btn" type="button" data-next aria-label="Scroll ' + esc(title) + ' right">' + icon("ic-right", 19) + "</button>" +
       "</div>";
     const track = el("div", "carousel");
     track.setAttribute("data-carousel", "");
@@ -546,7 +543,7 @@
           moved = true;
           track.classList.add("is-dragging");
           $$(".product-card", track).forEach(c => (c.dataset.dragged = "1"));
-          try { track.setPointerCapture(e.pointerId); } catch (err) {}
+          try { track.setPointerCapture(e.pointerId); } catch (err) { }
         }
         if (moved) track.scrollLeft = startLeft - dx;
       });
@@ -659,6 +656,15 @@
     modalPrice.innerHTML = price != null
       ? '<span class="price-now">' + money(price) + "</span>"
       : '<span class="price-enq">' + ENQUIRY_TEXT + "</span>";
+
+    if (current.product.flavourImages && current.flavour) {
+      const imgPath = current.product.flavourImages[current.flavour];
+      if (imgPath) {
+        const imgEl = $("img", modalMedia);
+        if (imgEl) imgEl.src = imgPath;
+        else modalMedia.innerHTML = '<img src="' + esc(imgPath) + '" alt="' + esc(current.product.name) + '" loading="lazy" decoding="async" width="900" height="675" data-pid="' + esc(current.product.id) + '">';
+      }
+    }
   }
 
   if (dlg) {
@@ -858,9 +864,9 @@
     if (!cart.length) {
       cartBody.innerHTML =
         '<div class="empty-state">' +
-          '<span class="ph-ring">' + icon("ic-cart", 32) + "</span>" +
-          "<h3>Your cart is ready for a fresh start.</h3>" +
-          "<p>Browse Cleaniac products and add what you need.</p>" +
+        '<span class="ph-ring">' + icon("ic-cart", 32) + "</span>" +
+        "<h3>Your cart is ready for a fresh start.</h3>" +
+        "<p>Browse Cleaniac products and add what you need.</p>" +
         "</div>";
       const b = el("a", "btn btn--primary btn--block", "Explore Products");
       b.href = PRODUCTS_PAGE;
@@ -875,37 +881,41 @@
       const key = cartKey(i.id, i.flavour, i.size);
       const lineTotal = s && s.price != null ? money(s.price * i.qty) : null;
       const variant = [i.flavour, i.size].filter(Boolean).join(" • ");
+      let thumbHTML = mediaHTML(p, true);
+      if (i.flavour && p.flavourImages && p.flavourImages[i.flavour]) {
+        thumbHTML = '<img src="' + esc(p.flavourImages[i.flavour]) + '" alt="' + esc(p.name) + '" loading="lazy" decoding="async" width="900" height="675" data-pid="' + esc(p.id) + '">';
+      }
       return '<div class="cart-item">' +
-        '<div class="cart-thumb">' + mediaHTML(p, true) + "</div>" +
+        '<div class="cart-thumb">' + thumbHTML + "</div>" +
         '<div class="cart-info">' +
-          "<h3>" + esc(p.name) + "</h3>" +
-          '<p class="cart-variant">' + esc(variant) + "</p>" +
-          '<div class="cart-line">' +
-            '<span class="qty">' +
-              '<button type="button" data-key="' + esc(key) + '" data-delta="-1" aria-label="Decrease quantity of ' + esc(p.name) + '">' + icon("ic-minus", 14) + "</button>" +
-              '<input type="text" value="' + i.qty + '" readonly aria-label="Quantity of ' + esc(p.name) + '">' +
-              '<button type="button" data-key="' + esc(key) + '" data-delta="1" aria-label="Increase quantity of ' + esc(p.name) + '">' + icon("ic-plus", 14) + "</button>" +
-            "</span>" +
-            '<span class="cart-price">' + (lineTotal || '<span class="enquiry">Price on enquiry</span>') + "</span>" +
-          "</div>" +
-          '<button class="cart-remove" type="button" data-remove="' + esc(key) + '">Remove</button>' +
+        "<h3>" + esc(p.name) + "</h3>" +
+        '<p class="cart-variant">' + esc(variant) + "</p>" +
+        '<div class="cart-line">' +
+        '<span class="qty">' +
+        '<button type="button" data-key="' + esc(key) + '" data-delta="-1" aria-label="Decrease quantity of ' + esc(p.name) + '">' + icon("ic-minus", 14) + "</button>" +
+        '<input type="text" value="' + i.qty + '" readonly aria-label="Quantity of ' + esc(p.name) + '">' +
+        '<button type="button" data-key="' + esc(key) + '" data-delta="1" aria-label="Increase quantity of ' + esc(p.name) + '">' + icon("ic-plus", 14) + "</button>" +
+        "</span>" +
+        '<span class="cart-price">' + (lineTotal || '<span class="enquiry">Price on enquiry</span>') + "</span>" +
         "</div>" +
-      "</div>";
+        '<button class="cart-remove" type="button" data-remove="' + esc(key) + '">Remove</button>' +
+        "</div>" +
+        "</div>";
     }).join("");
 
     const t = cartTotals();
     cartFoot.innerHTML =
       '<div class="cart-summary">' +
-        '<div class="row"><span>Known-price subtotal</span><span class="total">' +
-          (t.subtotal > 0 ? money(t.subtotal) : "On enquiry") + "</span></div>" +
-        '<div class="row muted"><span>' + t.units + " item" + (t.units === 1 ? "" : "s") + " in cart</span></div>" +
+      '<div class="row"><span>Known-price subtotal</span><span class="total">' +
+      (t.subtotal > 0 ? money(t.subtotal) : "On enquiry") + "</span></div>" +
+      '<div class="row muted"><span>' + t.units + " item" + (t.units === 1 ? "" : "s") + " in cart</span></div>" +
       "</div>" +
       (t.quoteItems
         ? '<p class="cart-note">' + t.quoteItems + " item" + (t.quoteItems === 1 ? " requires" : "s require") +
-          " a price quotation. Cleaniac will confirm pricing on WhatsApp.</p>"
+        " a price quotation. Cleaniac will confirm pricing on WhatsApp.</p>"
         : "") +
       '<button class="btn btn--wa btn--block" type="button" id="cartCheckout">' + icon("ic-wa", 19) +
-        (t.needsBulk ? "Request Order &amp; Bulk Quote" : "Send Order on WhatsApp") + "</button>" +
+      (t.needsBulk ? "Request Order &amp; Bulk Quote" : "Send Order on WhatsApp") + "</button>" +
       '<button class="btn btn--ghost btn--block" type="button" id="cartContinue">Continue Shopping</button>' +
       '<div id="cartClearZone" style="display:grid;justify-items:center"></div>';
 
@@ -929,11 +939,11 @@
 
     zone.innerHTML =
       '<div class="cart-note" style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:center;width:100%">' +
-        "<span>Remove all items from your cart?</span>" +
-        '<span style="display:flex;gap:8px;margin-left:auto">' +
-          '<button class="btn btn--sm btn--ghost" type="button" data-clear-cancel>Cancel</button>' +
-          '<button class="btn btn--sm btn--soft" type="button" data-clear-yes>Yes, clear</button>' +
-        "</span>" +
+      "<span>Remove all items from your cart?</span>" +
+      '<span style="display:flex;gap:8px;margin-left:auto">' +
+      '<button class="btn btn--sm btn--ghost" type="button" data-clear-cancel>Cancel</button>' +
+      '<button class="btn btn--sm btn--soft" type="button" data-clear-yes>Yes, clear</button>' +
+      "</span>" +
       "</div>";
     $("[data-clear-cancel]", zone).addEventListener("click", () => renderClearZone(false));
     $("[data-clear-yes]", zone).addEventListener("click", () => {

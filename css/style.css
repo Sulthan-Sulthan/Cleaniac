@@ -2713,12 +2713,15 @@ dialog::backdrop {
 
   .modal {
     inset: 0;
-    display: grid;
     place-items: center;
     width: 100%;
     height: 100%;
     padding: 28px;
     max-height: 100%;
+  }
+
+  .modal[open] {
+    display: grid;
   }
 
   .modal-panel {
