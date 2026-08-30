@@ -27,7 +27,8 @@ const CATEGORIES = [
   { id: "hygiene", name: "Hand & Personal Hygiene", icon: "hand" },
   { id: "air", name: "Air Care", icon: "air" },
   { id: "auto", name: "Automobile Care", icon: "auto" },
-  { id: "accessories", name: "Cleaning Accessories", icon: "mop" }
+  { id: "accessories", name: "Cleaning Accessories", icon: "mop" },
+  { id: "combo", name: "Combo Products", icon: "tag" }
 ];
 
 const PRODUCTS = [
@@ -427,6 +428,62 @@ const PRODUCTS = [
     flavours: [],
     sizes: [
       { label: "250 ml", price: 129 }
+    ],
+    bulkAvailable: true
+  },
+  {
+    id: "combo-1",
+    name: "Combo 1",
+    category: ["combo"],
+    short: "Combo offer package",
+    description: "Exclusive combo offer. Names and actual items will be updated later.",
+    image: null,
+    flavourLabel: "Variant",
+    flavours: [],
+    sizes: [
+      { label: "1 Pack", price: null }
+    ],
+    bulkAvailable: true
+  },
+  {
+    id: "combo-2",
+    name: "Combo 2",
+    category: ["combo"],
+    short: "Combo offer package",
+    description: "Exclusive combo offer. Names and actual items will be updated later.",
+    image: null,
+    flavourLabel: "Variant",
+    flavours: [],
+    sizes: [
+      { label: "1 Pack", price: null }
+    ],
+    bulkAvailable: true
+  },
+  {
+    id: "combo-3",
+    name: "Combo 3",
+    category: ["combo"],
+    short: "Combo offer package",
+    description: "Exclusive combo offer. Names and actual items will be updated later.",
+    image: null,
+    flavourLabel: "Variant",
+    flavours: [],
+    sizes: [
+      { label: "1 Pack", price: null }
+    ],
+    bulkAvailable: true
+  },
+  {
+    id: "combo-4",
+    name: "Combo 4",
+    category: ["combo"],
+    short: "Combo offer package",
+    description: "Exclusive combo offer. Names and actual items will be updated later.",
+    image: null,
+    flavourLabel: "Variant",
+    flavours: [],
+    sizes: [
+      { label: "1 Pack", price: null }
     ],
     bulkAvailable: true
   }
