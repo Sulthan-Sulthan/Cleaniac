@@ -11,7 +11,7 @@
    • Add a product ............. copy one whole { ... } block, paste it before
                                  the closing ]; and give it a NEW unique id
    • Add a real photo .......... put the picture in  assets/products/
-                                 then set  image: "assets/products/your-file.webp"
+                                 then set  image: "assets/products/your-file.png"
                                  Leave  image: null  to show the branded
                                  placeholder card (never a broken image).
 
@@ -40,6 +40,13 @@ const PRODUCTS = [
     image: "assets/products/floor-cleaner.png",   // ← replace with your own photo anytime
     flavourLabel: "Fragrance",
     flavours: ["Oudh", "Botanical Mist", "Citrus Lemon", "Aromatic Musk", "Lemongrass"],
+    flavourImages: {
+      "Oudh": "assets/products/floor-cleaner.png",
+      "Botanical Mist": "assets/products/floor-cleanerBotanicalMist.png",
+      "Citrus Lemon": "assets/products/floor-cleanerLemon.png",
+      "Aromatic Musk": "assets/products/floorCleanerAuromaticMask.png",
+      "Lemongrass": "assets/products/floor-cleanerLemonGrass.png"
+    },
     sizes: [
       { label: "500 ml", price: 99 },
       { label: "5 L", price: null },
@@ -55,8 +62,12 @@ const PRODUCTS = [
     short: "For utensils and everyday kitchen washing",
     description: "Used for cleaning utensils and everyday kitchen washing. Available from compact household bottles up to large commercial packs.",
     image: "assets/products/dishwash.png",
-    flavourLabel: "Fragrance",
-    flavours: [],
+    flavourLabel: "Variant",
+    flavours: ["Original", "Lemon"],
+    flavourImages: {
+      "Original": "assets/products/dishwash.png",
+      "Lemon": "assets/products/dishwashLemon.png"
+    },
     sizes: [
       { label: "250 ml", price: 45 },
       { label: "500 ml", price: 99 },
@@ -170,6 +181,13 @@ const PRODUCTS = [
     image: "assets/products/phenyl.png",
     flavourLabel: "Fragrance",
     flavours: ["Lemongrass", "Jasmine", "Sandal", "Lavender", "Citrus Lemon"],
+    flavourImages: {
+      "Lemongrass": "assets/products/phenylLemonGrass.png",
+      "Jasmine": "assets/products/phenylJasmine.png",
+      "Sandal": "assets/products/phenylSandal.png",
+      "Lavender": "assets/products/phenylLavender.png",
+      "Citrus Lemon": "assets/products/phenyl.png"
+    },
     sizes: [
       { label: "1 L", price: 99 },
       { label: "5 L", price: 299 },
@@ -212,7 +230,7 @@ const PRODUCTS = [
     category: ["bathroom"],
     short: "Liquid bleach for cleaning applications",
     description: "Liquid bleach for suitable cleaning applications. Also available in bulk quantities on enquiry.",
-    image: "assets/products/cleanox-liquid-bleach.webp",
+    image: "assets/products/cleanox-liquid-bleach.png",
     flavourLabel: "Fragrance",
     flavours: [],
     sizes: [
@@ -226,7 +244,7 @@ const PRODUCTS = [
     category: ["laundry"],
     short: "For treating suitable fabric stains",
     description: "For treating suitable fabric stains before or during washing.",
-    image: "assets/products/cleanox-fabric-stain-remover.webp",
+    image: "assets/products/fabricStrainRemover.png",
     flavourLabel: "Fragrance",
     flavours: [],
     sizes: [
@@ -240,7 +258,7 @@ const PRODUCTS = [
     category: ["kitchen"],
     short: "For stove and grill surfaces",
     description: "For cleaning suitable stove and grill surfaces in kitchens.",
-    image: "assets/products/cleanox-stove-grill-cleaner.webp",
+    image: "assets/products/cleanox-stove-grill-cleaner.png",
     flavourLabel: "Fragrance",
     flavours: [],
     sizes: [
@@ -300,7 +318,7 @@ const PRODUCTS = [
     category: ["auto"],
     short: "Automotive cleaning solution",
     description: "Automotive cleaning solution supplied in larger pack sizes.",
-    image: "assets/products/auto-cleanser.webp",
+    image: "assets/products/auto-cleanser.png",
     flavourLabel: "Fragrance",
     flavours: [],
     sizes: [
@@ -315,7 +333,7 @@ const PRODUCTS = [
     category: ["auto"],
     short: "Automotive chassis cleaning",
     description: "Automotive chassis-cleaning solution supplied in larger pack sizes.",
-    image: "assets/products/chassis-cleaner.webp",
+    image: "assets/products/chassis-cleaner.png",
     flavourLabel: "Fragrance",
     flavours: [],
     sizes: [
@@ -347,7 +365,7 @@ const PRODUCTS = [
     category: ["air"],
     short: "Room freshener in two fragrances",
     description: "Room freshener available in two fragrance options, in household bottles and larger refill packs.",
-    image: "assets/products/room-freshener.webp",
+    image: "assets/products/room-freshener.png",
     flavourLabel: "Fragrance",
     flavours: ["Musky Magic", "Floral Essence"],
     sizes: [
@@ -362,7 +380,7 @@ const PRODUCTS = [
     category: ["accessories"],
     short: "Microfiber mop for floor cleaning",
     description: "Microfiber mop for everyday floor cleaning. 250 g variant.",
-    image: "assets/products/microfiber-mop-250.webp",
+    image: "assets/products/microfiber-mop-250.png",
     flavourLabel: "Fragrance",
     flavours: [],
     sizes: [
@@ -376,7 +394,7 @@ const PRODUCTS = [
     category: ["accessories"],
     short: "Premium microfiber mop",
     description: "Premium microfiber mop for floor cleaning. 200 g variant.",
-    image: "assets/products/microfiber-mop-premium.webp",
+    image: "assets/products/microfiber-mop-premium.png",
     flavourLabel: "Fragrance",
     flavours: [],
     sizes: [
@@ -390,12 +408,26 @@ const PRODUCTS = [
     category: ["accessories"],
     short: "Economy microfiber mop",
     description: "Economy microfiber mop for floor cleaning. 200 g variant.",
-    image: "assets/products/microfiber-mop-economy.webp",
+    image: "assets/products/microfiber-mop-economy.png",
     flavourLabel: "Fragrance",
     flavours: [],
     sizes: [
       { label: "200 g", price: 399 }
     ],
     bulkAvailable: false
+  },
+  {
+    id: "air-freshner",
+    name: "Air Freshner",
+    category: ["air"],
+    short: "Air Freshner",
+    description: "Air freshner for a pleasant atmosphere.",
+    image: "assets/products/airFreshner.png",
+    flavourLabel: "Fragrance",
+    flavours: [],
+    sizes: [
+      { label: "250 ml", price: 129 }
+    ],
+    bulkAvailable: true
   }
 ];

@@ -656,6 +656,15 @@
     modalPrice.innerHTML = price != null
       ? '<span class="price-now">' + money(price) + "</span>"
       : '<span class="price-enq">' + ENQUIRY_TEXT + "</span>";
+
+    if (current.product.flavourImages && current.flavour) {
+      const imgPath = current.product.flavourImages[current.flavour];
+      if (imgPath) {
+        const imgEl = $("img", modalMedia);
+        if (imgEl) imgEl.src = imgPath;
+        else modalMedia.innerHTML = '<img src="' + esc(imgPath) + '" alt="' + esc(current.product.name) + '" loading="lazy" decoding="async" width="900" height="675" data-pid="' + esc(current.product.id) + '">';
+      }
+    }
   }
 
   if (dlg) {
@@ -872,8 +881,12 @@
       const key = cartKey(i.id, i.flavour, i.size);
       const lineTotal = s && s.price != null ? money(s.price * i.qty) : null;
       const variant = [i.flavour, i.size].filter(Boolean).join(" • ");
+      let thumbHTML = mediaHTML(p, true);
+      if (i.flavour && p.flavourImages && p.flavourImages[i.flavour]) {
+        thumbHTML = '<img src="' + esc(p.flavourImages[i.flavour]) + '" alt="' + esc(p.name) + '" loading="lazy" decoding="async" width="900" height="675" data-pid="' + esc(p.id) + '">';
+      }
       return '<div class="cart-item">' +
-        '<div class="cart-thumb">' + mediaHTML(p, true) + "</div>" +
+        '<div class="cart-thumb">' + thumbHTML + "</div>" +
         '<div class="cart-info">' +
         "<h3>" + esc(p.name) + "</h3>" +
         '<p class="cart-variant">' + esc(variant) + "</p>" +
