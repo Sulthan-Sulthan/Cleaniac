@@ -38,7 +38,7 @@ const PRODUCTS = [
     category: ["floor"],
     short: "For everyday floor and tile cleaning",
     description: "Used for cleaning floors and tiles. Available in five fragrance options and in household as well as larger commercial pack sizes.",
-    image: "assets/products/floor-cleaner.png",   // ← replace with your own photo anytime
+    image: "assets/products/floor-cleanerOudh.png",   // ← replace with your own photo anytime
     flavourLabel: "Fragrance",
     flavours: ["Oudh", "Botanical Mist", "Citrus Lemon", "Aromatic Musk", "Lemongrass"],
     flavourImages: {
@@ -67,7 +67,8 @@ const PRODUCTS = [
     flavours: ["Original", "Lemon"],
     flavourImages: {
       "Original": "assets/products/dishwash.png",
-      "Lemon": "assets/products/dishwashLemon.png"
+      "Lemon": "assets/products/dishwashLemon.png",
+      "Lemon|5 L": "assets/products/dishwashLemon5L.png"
     },
     sizes: [
       { label: "250 ml", price: 45 },
@@ -184,9 +185,13 @@ const PRODUCTS = [
     flavours: ["Lemongrass", "Jasmine", "Sandal", "Lavender", "Citrus Lemon"],
     flavourImages: {
       "Lemongrass": "assets/products/phenylLemonGrass.png",
+      "Lemongrass|5 L": "assets/products/phenylLemonGrass5L.png",
       "Jasmine": "assets/products/phenylJasmine.png",
+      "Jasmine|5 L": "assets/products/phenylJasmine5l.png",
       "Sandal": "assets/products/phenylSandal.png",
+      "Sandal|5 L": "assets/products/phenylSandal5L.png",
       "Lavender": "assets/products/phenylLavender.png",
+      "Lavender|5 L": "assets/products/phenyllavender5L.png",
       "Citrus Lemon": "assets/products/phenyl.png"
     },
     sizes: [
@@ -231,7 +236,7 @@ const PRODUCTS = [
     category: ["bathroom"],
     short: "Liquid bleach for cleaning applications",
     description: "Liquid bleach for suitable cleaning applications. Also available in bulk quantities on enquiry.",
-    image: "assets/products/cleanox-liquid-bleach.png",
+    image: "assets/products/cleanox-liquid-bleach.webp",
     flavourLabel: "Fragrance",
     flavours: [],
     sizes: [
@@ -245,7 +250,7 @@ const PRODUCTS = [
     category: ["laundry"],
     short: "For treating suitable fabric stains",
     description: "For treating suitable fabric stains before or during washing.",
-    image: "assets/products/fabricStrainRemover.png",
+    image: "assets/products/cleanox-fabric-stain-remover.webp",
     flavourLabel: "Fragrance",
     flavours: [],
     sizes: [
@@ -259,7 +264,7 @@ const PRODUCTS = [
     category: ["kitchen"],
     short: "For stove and grill surfaces",
     description: "For cleaning suitable stove and grill surfaces in kitchens.",
-    image: "assets/products/cleanox-stove-grill-cleaner.png",
+    image: "assets/products/cleanox-stove-grill-cleaner.webp",
     flavourLabel: "Fragrance",
     flavours: [],
     sizes: [
@@ -319,7 +324,7 @@ const PRODUCTS = [
     category: ["auto"],
     short: "Automotive cleaning solution",
     description: "Automotive cleaning solution supplied in larger pack sizes.",
-    image: "assets/products/auto-cleanser.png",
+    image: "assets/products/auto-cleanser.webp",
     flavourLabel: "Fragrance",
     flavours: [],
     sizes: [
@@ -334,7 +339,7 @@ const PRODUCTS = [
     category: ["auto"],
     short: "Automotive chassis cleaning",
     description: "Automotive chassis-cleaning solution supplied in larger pack sizes.",
-    image: "assets/products/chassis-cleaner.png",
+    image: "assets/products/chassis-cleaner.webp",
     flavourLabel: "Fragrance",
     flavours: [],
     sizes: [
@@ -381,7 +386,7 @@ const PRODUCTS = [
     category: ["accessories"],
     short: "Microfiber mop for floor cleaning",
     description: "Microfiber mop for everyday floor cleaning. 250 g variant.",
-    image: "assets/products/microfiber-mop-250.png",
+    image: "assets/products/microfiber-mop-250.webp",
     flavourLabel: "Fragrance",
     flavours: [],
     sizes: [
@@ -395,7 +400,7 @@ const PRODUCTS = [
     category: ["accessories"],
     short: "Premium microfiber mop",
     description: "Premium microfiber mop for floor cleaning. 200 g variant.",
-    image: "assets/products/microfiber-mop-premium.png",
+    image: "assets/products/microfiber-mop-premium.webp",
     flavourLabel: "Fragrance",
     flavours: [],
     sizes: [
@@ -409,7 +414,7 @@ const PRODUCTS = [
     category: ["accessories"],
     short: "Economy microfiber mop",
     description: "Economy microfiber mop for floor cleaning. 200 g variant.",
-    image: "assets/products/microfiber-mop-economy.png",
+    image: "assets/products/microfiber-mop-economy.webp",
     flavourLabel: "Fragrance",
     flavours: [],
     sizes: [

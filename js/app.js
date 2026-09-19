@@ -657,8 +657,14 @@
       ? '<span class="price-now">' + money(price) + "</span>"
       : '<span class="price-enq">' + ENQUIRY_TEXT + "</span>";
 
-    if (current.product.flavourImages && current.flavour) {
-      const imgPath = current.product.flavourImages[current.flavour];
+    if (current.product.flavourImages) {
+      const flavour = current.flavour || "";
+      const size = current.size || "";
+      let imgPath = null;
+      if (flavour && size) imgPath = current.product.flavourImages[flavour + "|" + size];
+      if (!imgPath && flavour) imgPath = current.product.flavourImages[flavour];
+      if (!imgPath && size) imgPath = current.product.flavourImages[size];
+
       if (imgPath) {
         const imgEl = $("img", modalMedia);
         if (imgEl) imgEl.src = imgPath;
@@ -882,8 +888,17 @@
       const lineTotal = s && s.price != null ? money(s.price * i.qty) : null;
       const variant = [i.flavour, i.size].filter(Boolean).join(" • ");
       let thumbHTML = mediaHTML(p, true);
-      if (i.flavour && p.flavourImages && p.flavourImages[i.flavour]) {
-        thumbHTML = '<img src="' + esc(p.flavourImages[i.flavour]) + '" alt="' + esc(p.name) + '" loading="lazy" decoding="async" width="900" height="675" data-pid="' + esc(p.id) + '">';
+      if (p.flavourImages) {
+        const flavour = i.flavour || "";
+        const size = i.size || "";
+        let imgPath = null;
+        if (flavour && size) imgPath = p.flavourImages[flavour + "|" + size];
+        if (!imgPath && flavour) imgPath = p.flavourImages[flavour];
+        if (!imgPath && size) imgPath = p.flavourImages[size];
+
+        if (imgPath) {
+          thumbHTML = '<img src="' + esc(imgPath) + '" alt="' + esc(p.name) + '" loading="lazy" decoding="async" width="900" height="675" data-pid="' + esc(p.id) + '">';
+        }
       }
       return '<div class="cart-item">' +
         '<div class="cart-thumb">' + thumbHTML + "</div>" +
@@ -921,6 +936,7 @@
 
     $("#cartCheckout").addEventListener("click", () => {
       window.open(waLink(cartMessage()), "_blank", "noopener");
+      cart = []; saveCart(); syncCartBadge(false); renderCart();
     });
     $("#cartContinue").addEventListener("click", closeCart);
     renderClearZone(false);
